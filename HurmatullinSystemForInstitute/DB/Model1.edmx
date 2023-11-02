@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище UchebnayaPraktika320BulatModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище UchebnayaPraktika320BulatModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="academics">
           <Key>
             <PropertyRef Name="id" />
@@ -54,7 +54,6 @@
           <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="hours" Type="int" />
           <Property Name="dname" Type="nvarchar" MaxLength="50" />
-          <Property Name="kafedra_code" Type="nvarchar" MaxLength="5" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -194,15 +193,15 @@
           <Property Name="login" Type="nvarchar" MaxLength="50" />
           <Property Name="password" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_disciplines_kafedras">
-          <End Role="Kafedra" Type="Self.Kafedra" Multiplicity="0..1" />
-          <End Role="Discipline" Type="Self.Discipline" Multiplicity="*" />
+        <Association Name="FK_Exam_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kafedra">
+            <Principal Role="Discipline">
               <PropertyRef Name="code" />
             </Principal>
-            <Dependent Role="Discipline">
-              <PropertyRef Name="kafedra_code" />
+            <Dependent Role="Exam">
+              <PropertyRef Name="code" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -332,9 +331,9 @@
     [Licium].[Score] AS [Score]
     FROM [dbo].[Licium] AS [Licium]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_disciplines_kafedras" Association="Self.FK_disciplines_kafedras">
-            <End Role="Kafedra" EntitySet="Kafedra" />
+          <AssociationSet Name="FK_Exam_Discipline" Association="Self.FK_Exam_Discipline">
             <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Exam" EntitySet="Exam" />
           </AssociationSet>
           <AssociationSet Name="FK_exams_students" Association="Self.FK_exams_students">
             <End Role="Student" EntitySet="Student" />
@@ -369,8 +368,7 @@
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UchebnayaPraktika320BulatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -423,8 +421,7 @@
           <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="hours" Type="Int32" />
           <Property Name="dname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="kafedra_code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Kafedra" Relationship="Self.FK_disciplines_kafedras" FromRole="Discipline" ToRole="Kafedra" />
+          <NavigationProperty Name="Exam" Relationship="UchebnayaPraktika320BulatModel.FK_Exam_Discipline" FromRole="Discipline" ToRole="Exam" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -439,6 +436,7 @@
           <Property Name="score" Type="Int32" />
           <NavigationProperty Name="Student" Relationship="Self.FK_exams_students" FromRole="Exam" ToRole="Student" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_exams_teachers" FromRole="Exam" ToRole="Teacher" />
+          <NavigationProperty Name="Discipline" Relationship="UchebnayaPraktika320BulatModel.FK_Exam_Discipline" FromRole="Exam" ToRole="Discipline" />
         </EntityType>
         <EntityType Name="Facult">
           <Key>
@@ -462,7 +460,6 @@
           <Property Name="code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="kname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="facult_abbr" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Discipline" Relationship="Self.FK_disciplines_kafedras" FromRole="Kafedra" ToRole="Discipline" />
           <NavigationProperty Name="Facult" Relationship="Self.FK_kafedras_facults" FromRole="Kafedra" ToRole="Facult" />
           <NavigationProperty Name="Spec" Relationship="Self.FK_specs_kafedras" FromRole="Kafedra" ToRole="Spec" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_workers_kafedras" FromRole="Kafedra" ToRole="Worker" />
@@ -579,18 +576,6 @@
           <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Score" Type="Double" />
         </EntityType>
-        <Association Name="FK_disciplines_kafedras">
-          <End Role="Kafedra" Type="Self.Kafedra" Multiplicity="0..1" />
-          <End Role="Discipline" Type="Self.Discipline" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kafedra">
-              <PropertyRef Name="code" />
-            </Principal>
-            <Dependent Role="Discipline">
-              <PropertyRef Name="kafedra_code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_exams_students">
           <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
@@ -709,10 +694,6 @@
           <EntitySet Name="Teacher" EntityType="Self.Teacher" />
           <EntitySet Name="Worker" EntityType="Self.Worker" />
           <EntitySet Name="Licium" EntityType="Self.Licium" />
-          <AssociationSet Name="FK_disciplines_kafedras" Association="Self.FK_disciplines_kafedras">
-            <End Role="Kafedra" EntitySet="Kafedra" />
-            <End Role="Discipline" EntitySet="Discipline" />
-          </AssociationSet>
           <AssociationSet Name="FK_exams_students" Association="Self.FK_exams_students">
             <End Role="Student" EntitySet="Student" />
             <End Role="Exam" EntitySet="Exam" />
@@ -745,7 +726,23 @@
             <End Role="Spec" EntitySet="Spec" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <AssociationSet Name="FK_Exam_Discipline" Association="UchebnayaPraktika320BulatModel.FK_Exam_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Exam_Discipline">
+          <End Type="UchebnayaPraktika320BulatModel.Discipline" Role="Discipline" Multiplicity="1" />
+          <End Type="UchebnayaPraktika320BulatModel.Exam" Role="Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -805,7 +802,6 @@
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="hours" ColumnName="hours" />
                 <ScalarProperty Name="dname" ColumnName="dname" />
-                <ScalarProperty Name="kafedra_code" ColumnName="kafedra_code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

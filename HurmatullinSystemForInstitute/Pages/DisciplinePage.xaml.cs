@@ -21,11 +21,17 @@ namespace HurmatullinSystemForInstitute.Pages
     /// </summary>
     public partial class DisciplinePage : Page
     {
-        public static List<Spec> specializations = new List<Spec>(DBConnection.Entity.Spec.ToList());
+        public static List<Spec> specializations { get; set; }
         public DisciplinePage()
-        {
-
+        {   
             InitializeComponent();
+            specializations = new List<Spec>(DBConnection.Entity.Spec.ToList());
+            this.DataContext = this;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

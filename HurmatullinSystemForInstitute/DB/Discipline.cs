@@ -14,11 +14,17 @@ namespace HurmatullinSystemForInstitute.DB
     
     public partial class Discipline
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Discipline()
+        {
+            this.Exam = new HashSet<Exam>();
+        }
+    
         public int code { get; set; }
         public Nullable<int> hours { get; set; }
         public string dname { get; set; }
-        public string kafedra_code { get; set; }
     
-        public virtual Kafedra Kafedra { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Exam> Exam { get; set; }
     }
 }

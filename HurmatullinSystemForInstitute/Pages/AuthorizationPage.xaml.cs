@@ -22,6 +22,7 @@ namespace HurmatullinSystemForInstitute.Pages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
+        public static Worker currentUser;
         public static List<Worker> Workers { get; set; }
         public AuthorizationPage()
         {
@@ -33,7 +34,7 @@ namespace HurmatullinSystemForInstitute.Pages
             string login = loginTb.Text.Trim();
             string password = passwordTb.Password.Trim();
             Workers = new List<Worker>(DBConnection.Entity.Worker.ToList());
-            Worker currentUser = Workers.FirstOrDefault(x => x.login == login && x.password == password);
+            currentUser = Workers.FirstOrDefault(x => x.login == login && x.password == password);
             if (currentUser != null && currentUser.idRole==2)
             {
                 NavigationService.Navigate(new ExamsPage());
@@ -42,7 +43,7 @@ namespace HurmatullinSystemForInstitute.Pages
 
         private void GuestBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new DisciplinePage());
         }
     }
 }

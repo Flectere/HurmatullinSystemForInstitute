@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HurmatullinSystemForInstitute.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace HurmatullinSystemForInstitute.Pages
     /// </summary>
     public partial class ExamsPage : Page
     {
+        public static List<Exam> exams { get; set; }
         public ExamsPage()
         {
+            exams = new List<Exam>(DBConnection.Entity.Exam.ToList());
             InitializeComponent();
+            this.DataContext = this;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

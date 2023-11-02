@@ -24,5 +24,6 @@ namespace HurmatullinSystemForInstitute.DB
     
         public virtual Student Student { get; set; }
         public virtual Teacher Teacher { get; set; }
+        public virtual Discipline Discipline { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace HurmatullinSystemForInstitute.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Kafedra()
         {
-            this.Discipline = new HashSet<Discipline>();
             this.Spec = new HashSet<Spec>();
             this.Worker = new HashSet<Worker>();
         }
@@ -26,8 +25,6 @@ namespace HurmatullinSystemForInstitute.DB
         public string kname { get; set; }
         public string facult_abbr { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Discipline> Discipline { get; set; }
         public virtual Facult Facult { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Spec> Spec { get; set; }

@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Animal_Bulat" Width="1.5" PointX="2.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Control_Bulat" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.countries" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Countries_Bulat" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Countries_Bulat" Width="1.5" PointX="10.375" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Discipline" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Exam" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Facult" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
@@ -26,7 +26,6 @@
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Teacher" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Worker" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel.Licium" Width="1.5" PointX="12.75" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_disciplines_kafedras" ManuallyRouted="false" />
         <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_exams_students" ManuallyRouted="false" />
         <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_exams_teachers" ManuallyRouted="false" />
         <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_kafedras_facults" ManuallyRouted="false" />
@@ -35,6 +34,7 @@
         <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_requests_specs" ManuallyRouted="false" />
         <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_Worker_Role" ManuallyRouted="false" />
         <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_students_specs" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel.FK_Exam_Discipline" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
