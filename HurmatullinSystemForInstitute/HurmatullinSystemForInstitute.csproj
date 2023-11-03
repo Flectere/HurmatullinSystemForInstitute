@@ -155,7 +155,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddStudentExamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DepartmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,16 +175,29 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\StudentsExamsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddStudentExamPage.xaml.cs">
+      <DependentUpon>AddStudentExamPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DepartmentsPage.xaml.cs">
+      <DependentUpon>DepartmentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DisciplinePage.xaml.cs">
       <DependentUpon>DisciplinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ExamsPage.xaml.cs">
       <DependentUpon>ExamsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentsExamsPage.xaml.cs">
+      <DependentUpon>StudentsExamsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center">
             <TextBlock 
-            Text="ВЫБОР "
+            Text="ЭКЗАМЕНЫ"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             TextWrapping ="NoWrap"
@@ -39,23 +39,20 @@
                 FontWeight="DemiBold"
                 Foreground="CadetBlue"/>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
-            
-            <Button VerticalAlignment="Top" Width = "100" Height="30" Content="Домой" Click="Button_Click"/>
+        <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment="Center" Grid.Row="0">
+            <Button Margin="0 0 0 55" Width = "100" Height="30" Content="Домой" Click="Button_Click"/>
         </StackPanel>
-        
+
         <ListView Grid.Column="1"
                 Grid.ColumnSpan="3"
                 Grid.Row="1"
-                  
                 Grid.RowSpan="1"
-                Name="DisciplinesList"
-                ItemsSource="{Binding exams}">
-
+                Name="ExamsList"
+                ItemsSource="{Binding sortExams}" SelectionChanged="ExamsList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Название дисциплины" Width="300">
+                        <GridViewColumn Header="Дата экзамена" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -64,7 +61,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Код специальности" Width="160">
+                        <GridViewColumn Header="Название дисциплины" Width="160">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock HorizontalAlignment="Center" Text="{Binding Discipline.dname}"/>

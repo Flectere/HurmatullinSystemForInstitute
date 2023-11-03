@@ -36,8 +36,12 @@ namespace HurmatullinSystemForInstitute.Pages
             Workers = new List<Worker>(DBConnection.Entity.Worker.ToList());
             currentUser = Workers.FirstOrDefault(x => x.login == login && x.password == password);
             if (currentUser != null && currentUser.idRole==2)
-            {kkkj
+            {
                 NavigationService.Navigate(new ExamsPage());
+            }
+            else if (currentUser != null && currentUser.idRole == 1)
+            {
+                NavigationService.Navigate(new DepartmentsPage());
             }
         }
 
