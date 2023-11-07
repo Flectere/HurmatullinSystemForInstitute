@@ -47,7 +47,7 @@ namespace HurmatullinSystemForInstitute.Pages
 
         private void GuestBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DisciplinePage());
+            NavigationService.Navigate(new SpecializationsPage());
         }
     }
 }

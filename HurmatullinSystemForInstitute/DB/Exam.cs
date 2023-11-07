@@ -22,8 +22,8 @@ namespace HurmatullinSystemForInstitute.DB
         public string cabinet { get; set; }
         public Nullable<int> score { get; set; }
     
+        public virtual Discipline Discipline { get; set; }
         public virtual Student Student { get; set; }
         public virtual Teacher Teacher { get; set; }
-        public virtual Discipline Discipline { get; set; }
     }
 }

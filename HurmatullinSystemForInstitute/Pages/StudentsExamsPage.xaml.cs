@@ -25,7 +25,7 @@ namespace HurmatullinSystemForInstitute.Pages
         public StudentsExamsPage()
         {
             InitializeComponent();
-            exams = DBConnection.Entity.Exam.Where(i => i.date == ExamsPage.selectedExam.date && i.Discipline == ExamsPage.selectedExam.Discipline).ToList();
+            exams = DBConnection.Entity.Exam.Where(i => i.date == ExamsPage.selectedExam.date && i.Discipline.dname == ExamsPage.selectedExam.Discipline.dname).ToList();
             NameExam.Text = $"Экзамен по предмету {ExamsPage.selectedExam.Discipline.dname}\nПреподаватель: {AuthorizationPage.currentUser.fio}";
             this.DataContext = this;
         }

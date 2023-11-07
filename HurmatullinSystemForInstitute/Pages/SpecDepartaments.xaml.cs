@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HurmatullinSystemForInstitute.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,22 +13,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HurmatullinSystemForInstitute.DB;
 
 namespace HurmatullinSystemForInstitute.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DepartmentsPage.xaml
+    /// Логика взаимодействия для SpecDepartaments.xaml
     /// </summary>
-    public partial class DepartmentsPage : Page
+    public partial class SpecDepartaments : Page
     {
-        public static List<Kafedra> departments { get; set; }
-        public static Kafedra selectedKafedra;
-        public DepartmentsPage()
+        public static List<Spec> specializations { get; set; }
+        public SpecDepartaments()
         {
             InitializeComponent();
-            departments = new List<Kafedra>(DBConnection.Entity.Kafedra);
-            UserNameTb.Text = AuthorizationPage.currentUser.fio;
+            specializations = new List<Spec>(DBConnection.Entity.Spec.Where(i=>i.kafedra_code==DepartmentsPage.selectedKafedra.code).ToList());
+            NameSpec.Text = $"СПЕЦИАЛЬНОСТИ\nВ КАФЕДРЕ:{DepartmentsPage.selectedKafedra.kname}";
             this.DataContext = this;
         }
 
@@ -36,10 +35,9 @@ namespace HurmatullinSystemForInstitute.Pages
             NavigationService.GoBack();
         }
 
-        private void DepartmentsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AddSpecBt_Click(object sender, RoutedEventArgs e)
         {
-            selectedKafedra = DepartmentsList.SelectedItem as Kafedra;
-            NavigationService.Navigate(new SpecDepartaments());
+            NavigationService.Navigate(new AddSpecPage());
         }
     }
 }

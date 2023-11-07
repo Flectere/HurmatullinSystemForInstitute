@@ -1,4 +1,4 @@
-﻿<Page x:Class="HurmatullinSystemForInstitute.Pages.AddStudentExamPage"
+﻿<Page x:Class="HurmatullinSystemForInstitute.Pages.AddSpecPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:HurmatullinSystemForInstitute.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddStudentExamPage">
+      Title="AddSpecPage">
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -28,7 +29,7 @@
 
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center">
             <TextBlock 
-    Text="ЗАПИСЬ НА ЭКЗАМЕН"
+    Text="ЗАПИСЬ СПЕЦИАЛЬНОСТИ"
     HorizontalAlignment="Center"
     VerticalAlignment="Center"
     TextWrapping ="NoWrap"
@@ -36,39 +37,30 @@
     FontWeight="DemiBold"
     Foreground="CadetBlue"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-            <TextBlock Text="Студент:"
-                    TextWrapping="Wrap"
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+            <TextBlock Text="Код:"
+                    TextAlignment="Center"
                     VerticalAlignment="Center"
-                    FontSize="15"
-                    FontWeight="DemiBold" Margin="0"/>
-            <ComboBox Name="StudentsCb"
-                    Width="95"
-                    Height="20" SelectionChanged="StudentsCb_SelectionChanged" 
-                    ItemsSource="{Binding students}"
-                    >
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding fio}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                    FontSize="20"
+                    FontWeight="DemiBold" Margin="0 0 0 5"/>
+            <TextBox Name="CodeSpecTb"
+                    Width="200"
+                    Height="20"
+                    
+                    Margin="0 0 0 20"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3">
-            <TextBlock Text="Оценка:"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       TextWrapping="Wrap"
-                       FontSize="15"
-                       FontWeight="DemiBold"/>
-            <ComboBox x:Name="ScoreCb"
-        Width="95"
-        Height="20" SelectionChanged="ScoreCb_SelectionChanged"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3">
+            <TextBlock Text="Название:"
+             TextAlignment="Center"
+             VerticalAlignment="Center"
+             FontSize="20"
+             FontWeight="DemiBold" Margin="0 0 0 5"/>
+            <TextBox Name="NameSpecTb"
+             Width="200"
+             Height="20"
+             
+             Margin="0 0 0 20"/>
         </StackPanel>
-        
-
-
-        
         <Button x:Name="AddBtn"
                     Height="30"
                     Width="150"

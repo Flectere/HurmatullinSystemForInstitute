@@ -21,9 +21,9 @@ namespace HurmatullinSystemForInstitute.Pages
     /// </summary>
     public partial class ExamsPage : Page
     {
-       
-        public static List<Exam> sortExams { get; set; }
         public static Exam selectedExam;
+        public static List<Exam> sortExams { get; set; }
+        
         public ExamsPage()
         {
             InitializeComponent();
@@ -49,6 +49,7 @@ namespace HurmatullinSystemForInstitute.Pages
         private void ExamsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedExam = ExamsList.SelectedItem as Exam;
+            
             NavigationService.Navigate(new StudentsExamsPage());
         }
     }

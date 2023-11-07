@@ -1,4 +1,4 @@
-﻿<Page x:Class="HurmatullinSystemForInstitute.Pages.DisciplinePage"
+﻿<Page x:Class="HurmatullinSystemForInstitute.Pages.SpecDepartaments"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:HurmatullinSystemForInstitute.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DisciplinePage">
+      Title="SpecDepartaments">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -21,30 +21,39 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center">
-            <TextBlock 
-                Text="СПЕЦИАЛЬНОСТИ"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                TextWrapping ="NoWrap"
-                FontSize="24"
-                FontWeight="DemiBold"
-                Foreground="CadetBlue"/>
-        </StackPanel>
+        
+        <TextBlock 
+        Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+        Name="NameSpec"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        HorizontalAlignment="Center"
+        FontSize="19"
+        FontWeight="DemiBold"
+        Foreground="CadetBlue"/>
+        
         <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment="Center" Grid.Row="0">
             <Button Margin="0 0 0 55" Width = "100" Height="30" Content="Домой" Click="Button_Click"/>
         </StackPanel>
         <ListView Grid.Column="1"
-                  Grid.ColumnSpan="3"
-                  Grid.Row="1"
-                  Grid.RowSpan="1"
-                  Name="DisciplinesList"
-                  ItemsSource="{Binding specializations}">
-
+            Grid.ColumnSpan="3"
+            Grid.Row="1"
+            Grid.RowSpan="1"
+            Name="StudentsExamsList"
+            ItemsSource="{Binding specializations}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Название специальности" Width="300">
+                        <GridViewColumn Header="Код">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding snumber}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Название" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -53,23 +62,25 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Код специальности" Width="160">
+                        <GridViewColumn Header="Кафедра" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock HorizontalAlignment="Center" Text="{Binding snumber}"/>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Kafedra.kname}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                     </GridView.Columns>
+
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Orientation="Vertical" VerticalAlignment="Center">
-            <TextBox Width="130" Height="30" Margin="20"/>
+        <StackPanel Grid.Column="4" Orientation="Vertical" VerticalAlignment="Center">
+            <TextBox Width="110" Height="30" Margin="20"/>
             <ComboBox
-                 Width="130"
-                 Height="30">
+            Width="110"
+            Height="30">
             </ComboBox>
         </StackPanel>
+        <Button Grid.Column="4" Grid.Row="2" Name="AddSpecBt" Width="100" Height="30" Content="Добавить" Click="AddSpecBt_Click"/>
     </Grid>
 </Page>

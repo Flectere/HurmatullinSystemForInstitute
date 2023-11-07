@@ -27,7 +27,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             TextWrapping ="NoWrap"
-            FontSize="19"
+            FontSize="20"
             FontWeight="DemiBold"
             Foreground="CadetBlue"/>
         </StackPanel>
@@ -52,7 +52,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="id студента">
+                        <GridViewColumn Header="ID" Width="30">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -61,10 +61,19 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Фамиля Имя Отчество">
+                        <GridViewColumn Header="Фамиля Имя Отчество" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock HorizontalAlignment="Center" Text="{Binding Student.fio}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Оценка">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding score}"/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -73,10 +82,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Orientation="Vertical" VerticalAlignment="Center">
-            <TextBox Width="130" Height="30" Margin="20"/>
+        <StackPanel Grid.Column="4" Orientation="Vertical" VerticalAlignment="Center">
+            <TextBox Width="110" Height="30" Margin="20"/>
             <ComboBox
-                Width="130"
+                Width="110"
                 Height="30">
             </ComboBox>
         </StackPanel>

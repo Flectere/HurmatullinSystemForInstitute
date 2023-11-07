@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bf507bcd31204858ad1dd6453c41e8d1" Name="Diagram1">
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.academics" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Animal_Bulat" Width="1.5" PointX="2.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Control_Bulat" Width="1.5" PointX="4.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.countries" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Countries_Bulat" Width="1.5" PointX="9.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Discipline" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Exam" Width="1.5" PointX="9.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Facult" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.FlowersBulat" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Kafedra" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.kafedra_mains" Width="1.5" PointX="2.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Request" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Role" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Spec" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Student" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Student10" Width="1.5" PointX="4.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.students14" Width="1.5" PointX="11.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Teacher" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Worker" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UchebnayaPraktika320BulatModel1.Licium" Width="1.5" PointX="11.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_Exam_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_exams_students" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_exams_teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_kafedras_facults" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_specs_kafedras" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_workers_kafedras" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_requests_specs" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_Worker_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="UchebnayaPraktika320BulatModel1.FK_students_specs" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

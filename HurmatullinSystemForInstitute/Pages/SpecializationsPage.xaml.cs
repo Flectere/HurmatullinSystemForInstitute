@@ -17,13 +17,14 @@ using System.Windows.Shapes;
 namespace HurmatullinSystemForInstitute.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DisciplinePage.xaml
+    /// Логика взаимодействия для SpecializationsPage.xaml
     /// </summary>
-    public partial class DisciplinePage : Page
+    public partial class SpecializationsPage : Page
     {
+        
         public static List<Spec> specializations { get; set; }
-        public DisciplinePage()
-        {   
+        public SpecializationsPage()
+        {
             InitializeComponent();
             specializations = new List<Spec>(DBConnection.Entity.Spec.ToList());
             this.DataContext = this;
