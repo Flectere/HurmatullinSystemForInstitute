@@ -33,8 +33,7 @@ namespace HurmatullinSystemForInstitute.Pages
             spec.snumber = CodeSpecTb.Text;
             spec.kafedra_code = DepartmentsPage.selectedKafedra.code;
             spec.sname = NameSpecTb.Text;
-            DBConnection.Entity.Spec.Add(spec);
-            DBConnection.Entity.SaveChanges();
+            Functions.AddSpec(spec);
             NavigationService.Navigate(new SpecDepartamentsPage());
         }
     }

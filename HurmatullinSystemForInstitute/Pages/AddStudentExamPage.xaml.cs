@@ -38,9 +38,8 @@ namespace HurmatullinSystemForInstitute.Pages
             exam.cabinet = ExamsPage.selectedExam.cabinet;
             exam.date = ExamsPage.selectedExam.date;
             exam.Discipline = ExamsPage.selectedExam.Discipline;
-            DBConnection.Entity.Exam.Add(exam);
-            DBConnection.Entity.SaveChanges();
-            NavigationService.Navigate(new StudentsExamsPage());
+            Functions.AddStudent(exam);
+            
         }
 
         private void StudentsCb_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -59,8 +59,7 @@ namespace HurmatullinSystemForInstitute.Pages
 
         private void DelBt_Click(object sender, RoutedEventArgs e)
         {
-            DBConnection.Entity.Worker.Remove(EmployeesPage.selectedEmployee);
-            DBConnection.Entity.SaveChanges();
+            Functions.DeleteEmployee(EmployeesPage.selectedEmployee);
             NavigationService.Navigate(new EmployeesPage());
         }
     }

@@ -42,8 +42,7 @@ namespace HurmatullinSystemForInstitute.Pages
             employee.fio = LastNameTb.Text;
             employee.chef = (ChefCb.SelectedItem as Worker).chef;
             employee.Kafedra = DepartmentsCb.SelectedItem as Kafedra;
-            DBConnection.Entity.Worker.Add(employee);
-            DBConnection.Entity.SaveChanges();
+            Functions.AddEmployee(employee);
             NavigationService.Navigate(new EmployeesPage());
         }
 
