@@ -35,7 +35,7 @@ namespace HurmatullinSystemForInstitute.Pages
             spec.sname = NameSpecTb.Text;
             DBConnection.Entity.Spec.Add(spec);
             DBConnection.Entity.SaveChanges();
-            NavigationService.Navigate(new SpecDepartaments());
+            NavigationService.Navigate(new SpecDepartamentsPage());
         }
     }
 }

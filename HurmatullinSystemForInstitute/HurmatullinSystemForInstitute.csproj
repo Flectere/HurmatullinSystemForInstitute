@@ -166,10 +166,15 @@
     <Compile Include="DB\Worker.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Functions.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddSpecPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,11 +191,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EditEmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EmployeesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ExamsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\SpecDepartaments.xaml">
+    <Page Include="Pages\SpecDepartamentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +217,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddEmployee.xaml.cs">
+      <DependentUpon>AddEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddSpecPage.xaml.cs">
       <DependentUpon>AddSpecPage.xaml</DependentUpon>
     </Compile>
@@ -216,11 +232,17 @@
     <Compile Include="Pages\DepartmentsPage.xaml.cs">
       <DependentUpon>DepartmentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EditEmployeePage.xaml.cs">
+      <DependentUpon>EditEmployeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmployeesPage.xaml.cs">
+      <DependentUpon>EmployeesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ExamsPage.xaml.cs">
       <DependentUpon>ExamsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SpecDepartaments.xaml.cs">
-      <DependentUpon>SpecDepartaments.xaml</DependentUpon>
+    <Compile Include="Pages\SpecDepartamentsPage.xaml.cs">
+      <DependentUpon>SpecDepartamentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SpecializationsPage.xaml.cs">
       <DependentUpon>SpecializationsPage.xaml</DependentUpon>

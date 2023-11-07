@@ -1,4 +1,4 @@
-﻿<Page x:Class="HurmatullinSystemForInstitute.Pages.StudentsExamsPage"
+﻿<Page x:Class="HurmatullinSystemForInstitute.Pages.EmployeesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:HurmatullinSystemForInstitute.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StudentsExamsPage">
+      Title="EmployeesPage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -23,57 +23,54 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center">
             <TextBlock 
-            Name="NameExam"
+            Text="СОТРУДНИКИ"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             TextWrapping ="NoWrap"
-            FontSize="20"
+            FontSize="24"
             FontWeight="DemiBold"
             Foreground="CadetBlue"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <TextBlock Name="UserNameTb" 
+                HorizontalAlignment="Left"
+                FontSize="20" 
+                FontWeight="DemiBold"
+                Foreground="CadetBlue"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment="Center" Grid.Row="0">
             <Button Margin="0 0 0 55" Width = "100" Height="30" Content="Домой" Click="Button_Click"/>
         </StackPanel>
+
         <ListView Grid.Column="1"
                 Grid.ColumnSpan="3"
                 Grid.Row="1"
                 Grid.RowSpan="1"
-                Name="StudentsExamsList"
-                ItemsSource="{Binding exams}" SelectionChanged="StudentsExamsList_SelectionChanged">
+                Name="EmployeesList"
+                ItemsSource="{Binding employees}" SelectionChanged="EmployeesList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Дата экзамена">
+                        <GridViewColumn Header="ФИО" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding date}"/>
+                                        <TextBlock Text="{Binding fio}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="ID" Width="30">
+                        <GridViewColumn Header="Должность" Width="160">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Student.id}"/>
-                                    </StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Role.name}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Фамиля Имя Отчество" Width="200">
+                        <GridViewColumn Header="Зарплата" Width="160">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Student.fio}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Оценка">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding score}"/>
-                                    </StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding salary}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -82,6 +79,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Grid.Column="4" Grid.Row="2" Name="AddStudentExam" Width="100" Height="30" Content="Добавить" Click="AddStudentExam_Click"/>
         <StackPanel Grid.Column="4" Orientation="Vertical" VerticalAlignment="Center">
             <TextBox Width="110" Height="30" Margin="20"/>
             <ComboBox
@@ -89,6 +87,5 @@
                 Height="30">
             </ComboBox>
         </StackPanel>
-        <Button Grid.Column="4" Grid.Row="2" Name="AddStudentExam" Width="100" Height="30" Content="Добавить" Click="AddStudentExam_Click"/>
     </Grid>
 </Page>

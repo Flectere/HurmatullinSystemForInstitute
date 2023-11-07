@@ -17,15 +17,15 @@ using System.Windows.Shapes;
 namespace HurmatullinSystemForInstitute.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для SpecDepartaments.xaml
+    /// Логика взаимодействия для SpecDepartamentsPage.xaml
     /// </summary>
-    public partial class SpecDepartaments : Page
+    public partial class SpecDepartamentsPage : Page
     {
         public static List<Spec> specializations { get; set; }
-        public SpecDepartaments()
+        public SpecDepartamentsPage()
         {
             InitializeComponent();
-            specializations = new List<Spec>(DBConnection.Entity.Spec.Where(i=>i.kafedra_code==DepartmentsPage.selectedKafedra.code).ToList());
+            specializations = new List<Spec>(DBConnection.Entity.Spec.Where(i => i.kafedra_code == DepartmentsPage.selectedKafedra.code).ToList());
             NameSpec.Text = $"СПЕЦИАЛЬНОСТИ\nВ КАФЕДРЕ:{DepartmentsPage.selectedKafedra.kname}";
             this.DataContext = this;
         }

@@ -1,0 +1,96 @@
+﻿<Page x:Class="HurmatullinSystemForInstitute.Pages.EditEmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HurmatullinSystemForInstitute.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditEmployeePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button 
+                Width="100"
+                Height="30"
+                HorizontalAlignment="Left"
+                Name="GoBackbt" Click="GoBackbt_Click">Назад</Button>
+        <TextBlock Grid.Row="2"
+                   FontSize="16"
+                   VerticalAlignment="Center">Фамилия</TextBlock>
+        <TextBlock Grid.Row="3"
+                   FontSize="16"
+                   VerticalAlignment="Center">Зарплата</TextBlock>
+        <TextBlock   Grid.Row="3"
+                   Grid.Column="4"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   Name="RoleNameTb"></TextBlock>
+        <TextBlock Grid.Row="2"
+                   Grid.Column="2"
+                   FontSize="16"
+                   VerticalAlignment="Center">Шеф</TextBlock>
+        <CheckBox   Grid.Row="2"
+                   Grid.Column="3"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   Name="ChefTb"></CheckBox>
+        <TextBox   Grid.Row="2"
+                   Grid.Column="1"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   Name="LastNameTb"></TextBox>
+        <TextBox   Grid.Row="3"
+                   Grid.Column="1"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   Name="SalaryTb"></TextBox>
+        <Button   Grid.Row="4"
+                   Grid.Column="3"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Height="25"
+                   Width="100"
+                   Name="EditBt" Click="EditBt_Click">Изменить</Button>
+        <Button   Grid.Row="4"
+                   Grid.Column="4"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Height="25"
+                   Width="100"
+                   Name="DelBt" Click="DelBt_Click">Удалить</Button>
+        <TextBlock Grid.Row="3" Grid.Column="2" Text="Должность" FontSize="16"
+                   VerticalAlignment="Center"/>
+        <ComboBox
+         Grid.Row="3"
+         Grid.Column="3"
+         FontSize="12"
+         VerticalAlignment="Center"
+         Name="RoleCb"
+            Width="150"
+         ItemsSource="{Binding role}" HorizontalAlignment="Right" Margin="0,18,5,18">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </Grid>
+</Page>

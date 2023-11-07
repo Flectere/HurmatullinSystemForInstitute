@@ -25,7 +25,7 @@ namespace HurmatullinSystemForInstitute.Pages
         public StudentsExamsPage()
         {
             InitializeComponent();
-            exams = DBConnection.Entity.Exam.Where(i => i.date == ExamsPage.selectedExam.date && i.Discipline.dname == ExamsPage.selectedExam.Discipline.dname).ToList();
+            exams = DBConnection.Entity.Exam.Where(i => i.date == ExamsPage.selectedExam.date && i.Discipline.dname == ExamsPage.selectedExam.Discipline.dname).ToList();//Передать объект
             NameExam.Text = $"Экзамен по предмету {ExamsPage.selectedExam.Discipline.dname}\nПреподаватель: {AuthorizationPage.currentUser.fio}";
             this.DataContext = this;
         }
@@ -37,6 +37,14 @@ namespace HurmatullinSystemForInstitute.Pages
         private void AddStudentExam_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddStudentExamPage());
+        }
+
+        private void StudentsExamsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Exam selectedExam = StudentsExamsList.SelectedItem as Exam;
+            DBConnection.Entity.Exam.Remove(selectedExam);
+            DBConnection.Entity.SaveChanges();
+            NavigationService.Navigate(new StudentsExamsPage());
         }
     }
 }

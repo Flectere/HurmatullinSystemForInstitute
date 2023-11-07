@@ -39,7 +39,7 @@ namespace HurmatullinSystemForInstitute.Pages
         private void DepartmentsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedKafedra = DepartmentsList.SelectedItem as Kafedra;
-            NavigationService.Navigate(new SpecDepartaments());
+            NavigationService.Navigate(new SpecDepartamentsPage());
         }
     }
 }

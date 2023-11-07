@@ -43,6 +43,10 @@ namespace HurmatullinSystemForInstitute.Pages
             {
                 NavigationService.Navigate(new DepartmentsPage());
             }
+            else if (currentUser != null && currentUser.idRole == 3)
+            {
+                NavigationService.Navigate(new EmployeesPage());
+            }
         }
 
         private void GuestBtn_Click(object sender, RoutedEventArgs e)
