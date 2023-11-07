@@ -39,5 +39,10 @@ namespace HurmatullinSystemForInstitute.Pages
         {
             NavigationService.Navigate(new AddSpecPage());
         }
+
+        private void SpecDepartmentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            NavigationService.Navigate(new EditSpecDepPage(SpecDepartmentList.SelectedItem as Spec));
+        }
     }
 }

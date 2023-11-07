@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище UchebnayaPraktika320BulatModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище UchebnayaPraktika320BulatModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="academics">
           <Key>
             <PropertyRef Name="id" />
@@ -196,7 +196,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_exams_students">
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -232,7 +234,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_requests_specs">
-          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Spec">
@@ -256,7 +260,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_students_specs">
-          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Spec">
@@ -357,8 +363,7 @@
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UchebnayaPraktika320BulatModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

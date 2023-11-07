@@ -39,8 +39,8 @@
             Grid.ColumnSpan="3"
             Grid.Row="1"
             Grid.RowSpan="1"
-            Name="StudentsExamsList"
-            ItemsSource="{Binding specializations}">
+            Name="SpecDepartmentList"
+            ItemsSource="{Binding specializations}" SelectionChanged="SpecDepartmentList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>

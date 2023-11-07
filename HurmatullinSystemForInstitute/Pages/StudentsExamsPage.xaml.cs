@@ -24,10 +24,18 @@ namespace HurmatullinSystemForInstitute.Pages
         public static List<Exam> exams { get; set; }
         public StudentsExamsPage()
         {
+
             InitializeComponent();
-            exams = DBConnection.Entity.Exam.Where(i => i.date == ExamsPage.selectedExam.date && i.Discipline.dname == ExamsPage.selectedExam.Discipline.dname).ToList();//Передать объект
-            NameExam.Text = $"Экзамен по предмету {ExamsPage.selectedExam.Discipline.dname}\nПреподаватель: {AuthorizationPage.currentUser.fio}";
-            this.DataContext = this;
+            try
+            {
+                exams = DBConnection.Entity.Exam.Where(i => i.date == ExamsPage.selectedExam.date && i.Discipline.dname == ExamsPage.selectedExam.Discipline.dname).ToList();
+                NameExam.Text = $"Экзамен по предмету {ExamsPage.selectedExam.Discipline.dname}\nПреподаватель: {AuthorizationPage.currentUser.fio}";
+                DataContext = this;
+            }
+            catch
+            {
+                MessageBox.Show("Нет экзаменов");
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

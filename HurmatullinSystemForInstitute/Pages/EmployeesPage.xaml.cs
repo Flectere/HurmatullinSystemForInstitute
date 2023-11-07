@@ -44,7 +44,7 @@ namespace HurmatullinSystemForInstitute.Pages
 
         private void AddStudentExam_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEmployee());
+            NavigationService.Navigate(new AddEmployeePage());
         }
     }
 }

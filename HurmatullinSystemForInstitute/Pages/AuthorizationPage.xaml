@@ -27,6 +27,12 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center"> 
+            <Image Name="imageQr" Height="200" Width="200"/>
+        </StackPanel>
+        <StackPanel Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center">
+            <Button Name="QrCodeBt" Width="60" Height="30" Content="Qr Code" Click="QrCodeBt_Click"/>
+        </StackPanel>
         <TextBlock Grid.Column="1"
                    Grid.ColumnSpan="4"
                    Grid.Row="0"

@@ -17,15 +17,15 @@ using System.Windows.Shapes;
 namespace HurmatullinSystemForInstitute.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddEmployee.xaml
+    /// Логика взаимодействия для AddEmployeePage.xaml
     /// </summary>
-    public partial class AddEmployee : Page
+    public partial class AddEmployeePage : Page
     {
         public static List<Role> roles { get; set; }
         public static List<Worker> employees { get; set; }
         public static List<Kafedra> departaments { get; set; }
 
-        public AddEmployee()
+        public AddEmployeePage()
         {
             InitializeComponent();
             departaments = DBConnection.Entity.Kafedra.ToList();
